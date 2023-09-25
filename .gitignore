@@ -1,3 +1,21 @@
-/.env
-/.venv
-/.vscode
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+
+# Logs and databases
+*.log
+*.sqlite
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.venv/
+
+# IDE or editor folders
+.idea/
+.vscode/
