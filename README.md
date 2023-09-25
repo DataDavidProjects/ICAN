@@ -8,7 +8,9 @@
 
 I-CAN (Intelligent Collaborative Agents Network) is a framework for simulating a collaborative multi-agent system.
 Each agent specializes in a particular domain and they work together to solve complex problems.
-The project is under development and feedback are welcome.
+
+
+The project is under development and feedbacks are welcome.
 
 ## Features
 
