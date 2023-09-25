@@ -10,8 +10,6 @@ with open("config.yaml", "r") as f:
 
 assistant_context = context_config["context"]["assistant"]
 
-print(f"Assistant context: {assistant_context}")
-
 
 class Agent:
     def __init__(

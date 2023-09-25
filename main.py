@@ -1,6 +1,6 @@
 import os
+import yaml
 from dotenv import load_dotenv
-from src.agents.agent import Agent
 from src.interaction.conversation import (
     Interaction,
 )
@@ -11,6 +11,11 @@ from src.utils.agent_utils import (
 # Load environment variables
 load_dotenv()
 api_key = os.environ.get("OPENAI_API_KEY")
+with open("config.yaml", "r") as f:
+    context_config = yaml.safe_load(f)
+
+
+user_request = context_config["user"]["request"]
 
 # Define agent details
 agent_details = [
@@ -26,10 +31,10 @@ agents = create_agents(api_key, agent_details)
 brainstorm = Interaction(
     agents=agents,
     rounds=3,
-    initial_prompt="I want to build a simple webapp that prints 'Hello World' to a user. How can I do it?",
+    initial_prompt=user_request,
 )
 
-# Conduct the Interaction rounds
+# Conduct the interaction rounds
 brainstorm.conduct_interaction()
 
 # Generate the final solution

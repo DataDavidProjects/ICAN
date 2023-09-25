@@ -35,7 +35,7 @@ class Interaction:
         return f"Interaction(Agents: [{agent_names}], Rounds: {self.rounds}, Initial Prompt: {self.initial_prompt})"
 
     def __repr__(self):
-        return f"User(username='{self.username}', password='{self.password}')"
+        return f"Interaction(request='{self.initial_prompt}', agents='{self.agents}', rounds='{self.rounds}')"
 
     def conduct_round(self) -> None:
         """
