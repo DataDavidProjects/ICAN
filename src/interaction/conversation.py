@@ -36,7 +36,8 @@ class Interaction:
 
         Return:
         1. A Summary paragraph of the problem and summarized contributions.
-        2. Solution paragraph with the final solution with all necessary details.
+        2. Solution paragraph with the final solution with all necessary details in depth. 
+        Respect the requested formats if specified
         """
         self.analyzer_agent = Agent(
             api_key=os.environ.get("OPENAI_API_KEY"),
@@ -90,6 +91,5 @@ class Interaction:
         analysis, _ = self.analyzer_agent.chat_completion(entire_history)
         print("*" * 100)
         final_output = "Final Solution: Based on the analysis, \n" + analysis
-        print("*" * 100)
 
         return {"final_output": final_output, "shared_history": self.shared_history}

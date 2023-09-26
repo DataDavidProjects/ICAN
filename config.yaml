@@ -2,9 +2,10 @@ assistant:
   context: |
     .\n
     You will try to solve the problem and follow your area of expertise to improve and validate the different propositions of your peers.
-    Avoid unnecessary compliments and just discuss the concrete side of things.
+    Express yourself professionally and avoid unnecessary talks.
     At each interaction you primary goal is to improve the previous answer.
 
 user:
   request: |
-    I want to be more cool, i need a one month plan with detailed instructions. provide me bullet point to do list.
+    What makes a company profitable ?
+    provide me bullet point to do list.

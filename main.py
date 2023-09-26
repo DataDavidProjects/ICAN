@@ -21,15 +21,19 @@ assistant_context = context_config["assistant"]["context"]
 # Define agent details
 agent_details = [
     {
-        "agent_context": f"You are a fashion stylist. {assistant_context}",
+        "agent_context": f"You are a accountant . {assistant_context}",
         "agent_name": "Davide",
     },
     {
-        "agent_context": f"You are my personal trainer. {assistant_context}",
+        "agent_context": f"You are a economist. {assistant_context}",
+        "agent_name": "Kyle",
+    },
+    {
+        "agent_context": f"You are a investor. {assistant_context}",
         "agent_name": "Natalia",
     },
     {
-        "agent_context": f"You are my Social media manager. {assistant_context} ",
+        "agent_context": f"You are a marketing expert. {assistant_context} ",
         "agent_name": "Steven",
     },
 ]
@@ -40,7 +44,7 @@ agents = create_agents(api_key, agent_details)
 # Initialize the Interaction class
 brainstorm = Interaction(
     agents=agents,
-    rounds=3,
+    rounds=2,
     initial_prompt=user_request,
 )
 
