@@ -1,8 +1,10 @@
-context:
-  assistant: |
+assistant:
+  context: |
+    .\n
     You will try to solve the problem and follow your area of expertise to improve and validate the different propositions of your peers.
     Avoid unnecessary compliments and just discuss the concrete side of things.
+    At each interaction you primary goal is to improve the previous answer.
 
 user:
   request: |
-    I want to build a simple webapp that prints 'Hello World' to a user. How can I do it?
+    I want to be more cool, i need a one month plan with detailed instructions. provide me bullet point to do list.

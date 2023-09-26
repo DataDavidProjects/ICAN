@@ -4,18 +4,11 @@ import openai
 import yaml
 
 
-with open("config.yaml", "r") as f:
-    context_config = yaml.safe_load(f)
-
-
-assistant_context = context_config["context"]["assistant"]
-
-
 class Agent:
     def __init__(
         self,
         api_key: str,
-        expertise: str,
+        agent_context: str,
         model: str = "gpt-3.5-turbo",
         agent_name: str = "Agent",
     ) -> None:
@@ -24,14 +17,13 @@ class Agent:
 
         Parameters:
             api_key (str): The OpenAI API key for making requests.
-            expertise (str): The area of expertise for this agent.
-            model (str, optional): The OpenAI model to use. Defaults to "text-davinci-002".
+            agent_context (str): The root blueprint for this agent with his expertise.
+            model (str, optional): The OpenAI model to use. Defaults to "gpt-3.5-turbo".
             agent_name (str, optional): The name of the agent. Defaults to "Agent".
         """
         self.api_key = api_key
         self.model = model
-        self.expertise = expertise
-        self.agent_context = f"You are a helpful assistant specialized in {expertise}. \n {assistant_context}"
+        self.agent_context = agent_context
         self.history: List[Dict[str, str]] = []
         self.previous_answers: List[Dict[str, str]] = []
         self.agent_name = agent_name
@@ -43,7 +35,7 @@ class Agent:
         Returns:
             str: A string representation.
         """
-        return f"Agent(Name: {self.agent_name}, Expertise: {self.expertise})"
+        return f"Agent(Name: {self.agent_name}, Expertise: {self.expertise}, Role: {self.role})"
 
     def chat_completion(self, prompt: str) -> Tuple[str, Dict[str, str]]:
         """

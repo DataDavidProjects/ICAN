@@ -19,7 +19,7 @@ def create_agents(
     return {
         detail["agent_name"]: Agent(
             api_key=api_key,
-            expertise=detail["expertise"],
+            agent_context=detail["agent_context"],
             agent_name=detail["agent_name"],
         )
         for detail in agent_details

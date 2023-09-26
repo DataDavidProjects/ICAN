@@ -16,12 +16,22 @@ with open("config.yaml", "r") as f:
 
 
 user_request = context_config["user"]["request"]
+assistant_context = context_config["assistant"]["context"]
 
 # Define agent details
 agent_details = [
-    {"expertise": "Fullstack Development", "agent_name": "Davide"},
-    {"expertise": "Marketing", "agent_name": "Natalia"},
-    {"expertise": "Data Science", "agent_name": "Steven"},
+    {
+        "agent_context": f"You are a fashion stylist. {assistant_context}",
+        "agent_name": "Davide",
+    },
+    {
+        "agent_context": f"You are my personal trainer. {assistant_context}",
+        "agent_name": "Natalia",
+    },
+    {
+        "agent_context": f"You are my Social media manager. {assistant_context} ",
+        "agent_name": "Steven",
+    },
 ]
 
 # Create agents

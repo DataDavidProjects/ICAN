@@ -1,7 +1,12 @@
 from typing import List, Dict, Union
+import os
+from dotenv import load_dotenv
 from src.agents.agent import (
     Agent,
 )
+
+# Load environment variables
+load_dotenv()
 
 
 class Interaction:
@@ -23,6 +28,21 @@ class Interaction:
         self.shared_history: List[Dict[str, str]] = [
             {"role": "user", "content": self.initial_prompt}
         ]
+
+        # Initialize the special AnalyzerAgent
+        analysis_context = """
+        You are an expert in analyzing and summarizing discussions. Your task is to 
+        provide a concise summary and solution based on the shared history of interactions.
+
+        Return:
+        1. A Summary paragraph of the problem and summarized contributions.
+        2. Solution paragraph with the final solution with all necessary details.
+        """
+        self.analyzer_agent = Agent(
+            api_key=os.environ.get("OPENAI_API_KEY"),
+            agent_context=analysis_context,
+            agent_name="AnalyzerAgent",
+        )
 
     def __str__(self) -> str:
         """
@@ -65,25 +85,11 @@ class Interaction:
             self.conduct_round()
 
     def final_solution(self) -> Dict[str, Union[str, List[Dict[str, str]]]]:
-        """
-        Generate the final solution based on the contributions from all agents.
-
-        Returns:
-            Dict[str, Union[str, List[Dict[str, str]]]]: A dictionary containing the final solution as a string,
-            and the dialog history as a list of dictionaries.
-        """
-        most_recent_contributions = {}
-
-        for entry in reversed(self.internal_history):
-            if entry["role"] == "assistant":
-                most_recent_contributions[entry["agent_name"]] = entry["content"]
+        # Use the AnalyzerAgent to get a concise summary
+        entire_history = "\n".join([entry["content"] for entry in self.shared_history])
+        analysis, _ = self.analyzer_agent.chat_completion(entire_history)
         print("*" * 100)
-        final_output = "Final Solution: Based on the latest insights, "
-        final_output += " ".join(
-            [
-                f"{agent_name} suggests: {suggestion};"
-                for agent_name, suggestion in most_recent_contributions.items()
-            ]
-        )
+        final_output = "Final Solution: Based on the analysis, \n" + analysis
+        print("*" * 100)
 
         return {"final_output": final_output, "shared_history": self.shared_history}
