@@ -45,8 +45,8 @@ def suggest_agents(
     """
 
     competency_suggester_context = f"""
-    You are an expert in analyzing problems and suggesting the competencies or expertise 
-    required to address them. Given a task or problem, list out the competencies that would be best suited 
+    You are an expert HR suggesting which job title or expertise a potential CEO
+    required to consult. Given a task or problem, list out the competencies that would be best suited 
     to solve it. Please list only the most {team_size} important competencies/job titles in bullet points.
     
     Expected Output:
