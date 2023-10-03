@@ -72,24 +72,10 @@ def suggest_agents(
         r"\*\s*(.*?)(?:\n|$)", response.choices[0].message.content
     )
 
-    names_pool = [
-        "Davide",
-        "Kyle",
-        "Natalia",
-        "Steven",
-        "Alex",
-        "John",
-        "Sophie",
-        "Emma",
-    ]
-    names_pool = names_pool[:team_size]
-    print(names_pool, competencies)
-    random.shuffle(names_pool)
-
     agent_details = [
         {
             "agent_context": f"Your skills are \n {competency}. {assistant_context}",
-            "agent_name": names_pool[name],
+            "agent_name": f"Agent_{name}",
         }
         for name, competency in enumerate(competencies)
     ]
