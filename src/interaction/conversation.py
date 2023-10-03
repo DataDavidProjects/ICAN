@@ -69,7 +69,7 @@ class Interaction:
             agent.listen(self.shared_history)
             response, _ = agent.reply()
             print("-" * 100)
-            print(f"{agent_name}: \n {response}")
+            print(f"{agent_name}-{agent.agent_expertise}: \n {response}")
             self.shared_history.append({"role": "assistant", "content": response})
             self.internal_history.append(
                 {"role": "assistant", "agent_name": agent_name, "content": response}

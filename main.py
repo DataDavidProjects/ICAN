@@ -18,7 +18,7 @@ assistant_context = context_config["assistant"]["context"]
 # Suggest agent details using the function
 agent_details = suggest_agents(user_request, api_key, assistant_context)
 
-print(agent_details)
+
 # Create agents
 agents = create_agents(api_key, agent_details)
 

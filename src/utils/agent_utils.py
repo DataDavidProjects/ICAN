@@ -30,7 +30,7 @@ def create_agents(
 
 
 def suggest_agents(
-    prompt: str, api_key: str, assistant_context: str, teamsize: int = 3
+    prompt: str, api_key: str, assistant_context: str, team_size: int = 3
 ) -> list:
     """
     Use OpenAI to analyze a given prompt and suggest relevant agent details.
@@ -46,8 +46,8 @@ def suggest_agents(
 
     competency_suggester_context = f"""
     You are an expert in analyzing problems and suggesting the competencies or expertise 
-    required to address them. Given a task or problem and a team of max size {teamsize}, list out the competencies that would be best suited 
-    to solve it. Please list the competencies in bullet points.
+    required to address them. Given a task or problem and a team of max size {team_size}, list out the competencies that would be best suited 
+    to solve it. Please list at most {team_size} competencies in bullet points.
 
     Expected Output:
     * Design: the ability to create pleasing and functional UX and UI.
@@ -82,14 +82,16 @@ def suggest_agents(
         "Sophie",
         "Emma",
     ]
+    names_pool = names_pool[:team_size]
+    print(names_pool, competencies)
     random.shuffle(names_pool)
 
     agent_details = [
         {
             "agent_context": f"Your skills are \n {competency}. {assistant_context}",
-            "agent_name": names_pool[:teamsize].pop(),
+            "agent_name": names_pool[name],
         }
-        for competency in competencies
+        for name, competency in enumerate(competencies)
     ]
 
     return agent_details

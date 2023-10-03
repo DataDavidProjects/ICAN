@@ -2,6 +2,7 @@ from typing import List, Dict, Tuple, Optional
 from datetime import datetime
 import openai
 import yaml
+import re
 
 
 class Agent:
@@ -27,6 +28,7 @@ class Agent:
         self.history: List[Dict[str, str]] = []
         self.previous_answers: List[Dict[str, str]] = []
         self.agent_name = agent_name
+        self.agent_expertise = self.extract_expertise()
 
     def __str__(self) -> str:
         """
@@ -35,7 +37,17 @@ class Agent:
         Returns:
             str: A string representation.
         """
-        return f"Agent(Name: {self.agent_name}, Expertise: {self.expertise}, Role: {self.role})"
+        return f"Agent(Name: {self.agent_name}, Expertise: {self.agent_expertise}, Context: {self.agent_context}, Role: {self.role})"
+
+    def extract_expertise(self) -> str:
+        """
+        Extract expertise from agent_context.
+
+        Returns:
+            str: The extracted expertise.
+        """
+        match = re.search(r"\n\s*(.*?):", self.agent_context)
+        return match.group(1).strip() if match else "Unknown"
 
     def chat_completion(self, prompt: str) -> Tuple[str, Dict[str, str]]:
         """
