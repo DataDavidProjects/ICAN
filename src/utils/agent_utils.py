@@ -46,9 +46,9 @@ def suggest_agents(
 
     competency_suggester_context = f"""
     You are an expert in analyzing problems and suggesting the competencies or expertise 
-    required to address them. Given a task or problem and a team of max size {team_size}, list out the competencies that would be best suited 
-    to solve it. Please list at most {team_size} competencies in bullet points.
-
+    required to address them. Given a task or problem, list out the competencies that would be best suited 
+    to solve it. Please list only the most {team_size} important competencies/job titles in bullet points.
+    
     Expected Output:
     * Design: the ability to create pleasing and functional UX and UI.
     * Development: proficiency in coding and software creation.

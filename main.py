@@ -25,7 +25,7 @@ agents = create_agents(api_key, agent_details)
 # Initialize the Interaction class
 brainstorm = Interaction(
     agents=agents,
-    rounds=2,
+    rounds=1,
     initial_prompt=user_request,
 )
 

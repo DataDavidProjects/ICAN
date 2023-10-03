@@ -37,7 +37,7 @@ class Agent:
         Returns:
             str: A string representation.
         """
-        return f"Agent(Name: {self.agent_name}, Expertise: {self.agent_expertise}, Context: {self.agent_context}, Role: {self.role})"
+        return f"Agent(Name: {self.agent_name}, Expertise: {self.agent_expertise})"
 
     def extract_expertise(self) -> str:
         """

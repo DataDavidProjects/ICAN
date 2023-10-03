@@ -88,8 +88,12 @@ class Interaction:
     def final_solution(self) -> Dict[str, Union[str, List[Dict[str, str]]]]:
         # Use the AnalyzerAgent to get a concise summary
         entire_history = "\n".join([entry["content"] for entry in self.shared_history])
+        team = {str(agent) for agent_name, agent in self.agents.items()}
         analysis, _ = self.analyzer_agent.chat_completion(entire_history)
         print("*" * 100)
-        final_output = "Final Solution: Based on the analysis, \n" + analysis
+        final_output = (
+            f"Final Solution: Based on the analysis and the following team:\n {team}, \n"
+            + analysis
+        )
 
         return {"final_output": final_output, "shared_history": self.shared_history}
