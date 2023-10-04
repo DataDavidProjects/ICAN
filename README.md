@@ -5,9 +5,10 @@
 [![Framework](https://img.shields.io/badge/framework-micro--framework-green)](https://github.com/yourusername/aican)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--3.5--turbo-orange)](https://openai.com/)
 
+![I-CAN Logo](./public/logo/ICAN__.png)
+
 ## Description
 
-![I-CAN Logo](./public/logo/ICAN__.png)
 
 I-CAN (Intelligent Collaborative Agents Network) is a micro-framework for simulating a collaborative multi-agent system.
 Each agent specializes in a particular domain and they work together to suggest the best way to solve a business problems.
