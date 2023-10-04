@@ -7,6 +7,8 @@
 
 ## Description
 
+![I-CAN Logo](./public/logo/ICAN.png)
+
 I-CAN (Intelligent Collaborative Agents Network) is a micro-framework for simulating a collaborative multi-agent system.
 Each agent specializes in a particular domain and they work together to suggest the best way to solve a business problems.
 
