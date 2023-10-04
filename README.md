@@ -31,3 +31,17 @@ To install the required dependencies, run:
 ```bash
 pip install -r requirements.txt
 ```
+Modify the business request and the context of agents using the config.yaml file
+```
+assistant:
+  context: |
+    .\n
+    You will try to solve the problem and follow your area of expertise to improve and validate the different propositions of your peers.
+    Express yourself professionally and avoid unnecessary talks.
+    At each interaction you primary goal is to improve the previous answer.
+
+user:
+  request: |
+    How can i find a remote job in Data Science ?
+    provide me bullet point to do list.
+```
