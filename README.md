@@ -18,7 +18,7 @@ The project is under development and feedbacks are welcome.
 
 ## 🚀 Features
 
-- **Recruitment Agent**: Enables to suggest the best expertise to work in tandem given the problem.
+- **Recruitment Agent**: Enables an HR-created agent to suggest the best expertise to work in tandem given the problem.
 - **Multi-Agent Collaboration**: Enables multiple agents to work in tandem, offering holistic solutions.
 - **Domain Specialization**: Each agent is an expert in its domain, ensuring expert solutions.
 - **Brainstorming Sessions**: Agents can brainstorm to refine and enhance their suggestions.
