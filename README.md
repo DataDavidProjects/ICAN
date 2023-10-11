@@ -6,7 +6,7 @@
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--3.5--turbo-orange)](https://openai.com/)
 
 <div align="center">
-  <img src="./public/logo/ICAN.png" width="500">
+  <img src="./public/logo/ICAN__.png" width="500">
 </div>
 
 ## Description
